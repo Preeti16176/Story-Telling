@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mysterious Forest</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <!-- Home Page (Title of the Story) -->
+    <div id="homePage" class="home-page">
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHpyMjF2c3d6anI2bm83aHZuOG5tbndicWVyM2RweWM0c25qYndjOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XGbU8CyGpRdgh5wY4f/giphy.gif" alt="Mysterious Forest" class="home-image">
+        <h1 class="story-title" onclick="startStory()">Click to Start the Story</h1>
+    </div>
+
+    <!-- Chapter Selection Page -->
+    <div id="storyPage" class="story-page" style="display: none;">
+        <h1>Choose a Chapter:</h1>
+        <div class="chapter-list">
+            <button onclick="startChapter(1)"><h2>Chapter 1: The Mysterious Forest</h2></button>
+            <br>
+            <button onclick="startChapter(2)"><h2>Chapter 2: The Discovery</h2></button>
+            <br>
+            <button onclick="startChapter(3)"><h2>Chapter 3: The Last Letter</h2></button>
+        </div>
+    </div>
+
+    <!-- Chapter Story Sections (Initially Hidden) -->
+    <div id="chapterPage" class="chapter-page" style="display: none;">
+        <!-- Chapter 1 -->
+        <section class="story-section" id="chapter-1">
+            <div class="content">
+                <h2 id="text">Chapter 1: The Mysterious Forest</h2>
+                <p class="story-text">
+                    Lara had heard whispers of the forest all her life. An ancient place, said to be filled with magic and secrets that only the bravest could uncover. One day, driven by curiosity, Lara decided to enter the forest.
+                    <br><br>
+                    The trees towered above her, their branches intertwining like a canopy of shadows. The air was thick with mystery, and every step she took felt like stepping into another world. 
+                    <br><br>
+                    “What will I find here?” she thought, her heart racing with excitement and fear.
+                </p>
+                
+                  <button onclick="readBothTexts()">🔊 Read Aloud</button><br>
+                  <button onclick="stopReading()">🛑 Stop</button>
+                  <br> 
+                  <button onclick="goBackToChapters()">⬅️ Back to Chapters</button>
+
+
+                  <script>
+                    function readBothTexts() {
+                      const idText = document.getElementById("text").innerText;
+                      const classText = document.querySelector(".story-text").innerText;
+                      const combinedText = idText + " " + classText;
+                      speechSynthesis.cancel();
+
+                      const utterance = new SpeechSynthesisUtterance(combinedText);
+                      speechSynthesis.speak(utterance);
+                    }
+                    function stopReading() {
+      speechSynthesis.cancel();
+    }
+                  </script>
+              
+            </div>
+            <div class="image">
+                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzF3MGNqcGRtbG96cjNpNm1ld3E3MTAxZ2VjZGR3Z2t1cXZxbG00dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEduYJ5WzNGsAadKU/giphy.gif" alt="Mysterious Forest">
+            </div>
+        </section>
+
+        <!-- Chapter 2 -->
+        <section class="story-section" id="chapter-2">
+            <div class="content">
+                <h2 id="text2">Chapter 2: The Discovery</h2>
+                <p class="story-text2">
+                    As Lara ventured deeper into the forest, the air became colder, and an eerie silence surrounded her. The sunlight barely pierced through the thick foliage, casting strange shadows on the ground. 
+                    <br><br>
+                    After walking for hours, she stumbled upon a tree unlike any she had ever seen. Its bark was covered in intricate symbols, glowing faintly in the dim light. The markings seemed to tell a story—one that had been forgotten by time.
+                    <br><br>
+                    "What could these symbols mean?" Lara wondered, running her fingers along the markings.
+                </p>
+                <button onclick="readBothTexts2()">🔊 Read Aloud</button>
+                <button onclick="stopReading()">🛑 Stop</button>
+                <br>
+                <button onclick="goBackToChapters()">⬅️ Back to Chapters</button>
+
+
+                <script>
+                  function readBothTexts2() {
+                    const idText = document.getElementById("text2").innerText;
+                    const classText = document.querySelector(".story-text2").innerText;
+                    const combinedText = idText + " " + classText;
+                    speechSynthesis.cancel();
+                    const utterance = new SpeechSynthesisUtterance(combinedText);
+                    speechSynthesis.speak(utterance);
+                  }
+                  function stopReading() {
+      speechSynthesis.cancel();
+    }
+                </script>
+            </div>
+            <div class="image">
+                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExazVxdHVxNWcwNG5lenEwNmlxeDd3eWZiaDFlaTg3bTFnYXp5ZWk2NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TuptaxRZphuyA/giphy.gif" alt="Discovery">
+            </div>
+        </section>
+
+        <!-- Chapter 3 -->
+        <section class="story-section" id="chapter-3">
+            <div class="content">
+                <h2 id="text3">Chapter 3: The Last Letter</h2>
+                <p class="story-text3">
+                    After walking deeper into the forest, Lara stumbled upon a small, abandoned cabin. The door creaked open, revealing dust-covered furniture and a single wooden desk in the corner. 
+                    <br><br>
+                    On the desk lay an old envelope, yellowed with age. The wax seal was still intact, and the handwriting on the front of the letter read: "For Lara, when the time is right."
+                    <br><br>
+                    Her hands trembled as she carefully opened the envelope. Inside was a letter, written in a familiar hand—the handwriting of her long-lost grandmother.
+                    <br><br>
+                    "My dear Lara," the letter began, "if you're reading this, it means you have found the forest. The secrets it holds are more than just stories. They are a part of you now, and you must continue the journey that was set for you long ago..."
+                </p>
+                <button onclick="readBothTexts3()">🔊 Read Aloud</button>
+                <button onclick="stopReading()">🛑 Stop</button>
+                <br>
+                <button onclick="goBackToChapters()">⬅️ Back to Chapters</button>
+
+
+                <script>
+                  function readBothTexts3() {
+                    const idText = document.getElementById("text3").innerText;
+                    const classText = document.querySelector(".story-text3").innerText;
+                    const combinedText = idText + " " + classText;
+                    speechSynthesis.cancel();
+                    const utterance = new SpeechSynthesisUtterance(combinedText);
+                    speechSynthesis.speak(utterance);
+                  }
+                  function stopReading() {
+      speechSynthesis.cancel();
+    }
+                </script>
+                <script>
+                    function goBackToChapters() {
+                      // Hide all chapters
+                      document.querySelectorAll('.story-section').forEach(section => {
+                        section.style.display = 'none';
+                      });
+                  
+                      // Show chapter selection page
+                      document.getElementById('chapterPage').style.display = 'none';
+                      document.getElementById('storyPage').style.display = 'block';
+                  
+                      // Stop any ongoing reading
+                      speechSynthesis.cancel();
+                    }
+                  </script>
+                  
+            </div>
+            <div class="image">
+                <img src="IMG4.jpg" alt="The Last Letter">
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 AI Story Generator | All Rights Reserved</p>
+        </footer>
+    </div>
+</body>
+</html>
